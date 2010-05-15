@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="ml_list_font_size">17px</dimen>
+	<dimen name="ml_list_no_items_font_size">17px</dimen>
+	<dimen name="help_text_font_size">15px</dimen>
+	<dimen name="seekbar_value_font_size">17px</dimen>
+	<dimen name="start_button_font_size">20px</dimen>
+	<dimen name="settings_button_font_size">20px</dimen>
+	<dimen name="help_button_font_size">20px</dimen>
+	<dimen name="about_button_font_size">20px</dimen>
+	<dimen name="front_page_font_size">17px</dimen>
+	
+	<dimen name="start_button_width">140px</dimen>
+	<dimen name="settings_button_width">140px</dimen>
+	<dimen name="help_button_width">140px</dimen>
+	<dimen name="about_button_width">140px</dimen>
+	
+</resources>

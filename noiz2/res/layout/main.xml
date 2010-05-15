@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/starfield">
+
+   <ImageView android:id="@+id/title"
+           android:src="@drawable/title"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+           android:gravity="center_vertical|center_horizontal"
+           android:paddingTop="20dip" 
+           android:paddingBottom="20dip" 
+           android:layout_gravity="center_horizontal"/>
+
+    <TextView android:id="@+id/app_version"
+        	android:textSize="@dimen/front_page_font_size"
+    		android:paddingTop="10dip"
+            android:paddingBottom="20dip" 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"			    
+	        android:gravity="center_horizontal" android:text="0.0.0"/>
+
+	<Button	android:id="@+id/runGame"
+			android:text="@string/run_title"
+        	android:textSize="@dimen/start_button_font_size"
+			android:layout_width="@dimen/start_button_width"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"/>
+
+	<Button	android:id="@+id/runSetting"
+			android:text="@string/settings"
+        	android:textSize="@dimen/settings_button_font_size"
+			android:layout_width="@dimen/settings_button_width"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal" android:layout_marginTop="10px"/>
+
+	<Button	android:id="@+id/runHelp"
+			android:text="@string/help"
+        	android:textSize="@dimen/help_button_font_size"
+			android:layout_width="@dimen/help_button_width"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal" android:layout_marginTop="10px"/>
+
+	<Button	android:id="@+id/runAbout"
+			android:text="@string/about"
+        	android:textSize="@dimen/about_button_font_size"
+			android:layout_width="@dimen/about_button_width"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal" android:layout_marginTop="10px"/>
+
+	<!-- 
+	<TextView android:id="@+id/text"
+        	android:textSize="@dimen/front_page_font_size"
+			android:paddingTop="20dip"
+			android:paddingBottom="50dip"
+		    android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content"
+		    android:text="@string/menu_tag"
+		    android:gravity="center_horizontal"/>
+	 -->
+	 
+</LinearLayout>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<TextView android:id="@+id/text_a"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="@string/app_name"
+	    android:gravity="center_horizontal"/>
+
+    <TextView android:id="@+id/app_version"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"			    
+        android:gravity="center_horizontal"/>
+
+	<TextView android:id="@+id/text_b"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="@string/copyright"
+	    android:gravity="center_horizontal" android:layout_marginTop="10px"/>
+
+	<TextView android:id="@+id/text_c"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="@string/ported_by"
+	    android:gravity="center_horizontal" android:layout_marginTop="10px" android:layout_marginRight="10px" android:layout_marginLeft="10px"/>
+   
+	<TextView android:id="@+id/text_d"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="@string/ported_where"
+	    android:gravity="center_horizontal" android:layout_marginTop="10px"/>
+    
+	<TextView android:id="@+id/text_e"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:text="@string/author_site"
+	    android:autoLink="web"
+	    android:gravity="center_horizontal" android:layout_marginTop="10px"/>
+    
+    <TextView android:id="@+id/text_f"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center_horizontal"/>
+    
+</LinearLayout>
+    

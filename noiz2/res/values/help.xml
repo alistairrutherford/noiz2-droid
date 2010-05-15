@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string name="help_text" >
+
+<b><u>Instructions</u></b>
+
+\n\n
+
+Select stage by touching the stage number on the game screen. 
+
+\n\n
+
+As you progress through the game further stages will open up. 
+
+\n\n
+
+There are ten stages. 
+
+\n\n
+
+Once all stages are done you will be given stage 0 which is endless mode. 
+
+\n\n
+
+Move your fighter by touching the screen. 
+
+\n\n
+
+Avoid the barrage. 
+
+\n\n
+
+Your fighter is equipped with a laser target finder. Once locked on the enemy will be destroyed.
+
+\n\n
+
+Collect green bonus stars.
+
+\n\n
+
+<b><u>About the game</u></b>
+
+\n\n
+
+Noiz2 was written by Japanese game designer Kenta Cho.  
+ 
+\n\n
+
+In the process of porting Noiz2 to the Android platform I have made a few alterations to the original game. Some of the colours have been altered to look better on the phone screen. Also, I have implemented the ability to select difficulty plus added sound effects. 
+
+\n\n
+
+<b><u>Troubleshooting</u></b>
+
+\n\n
+
+If you experience a force close error try rebooting the phone. Next try switching the GL acceleration off from the settings page. If it is still not working send me an email stating at which point the application crashed i.e. after pressing the start button or during a game stage.     
+ 
+\n\n
+
+<b><u>Preferences</u></b>
+
+\n\n
+
+<b>Sound on/off</b>
+
+\n\n
+
+Toggles sound effects. 
+
+\n\n
+
+<b>Difficulty Mode</b>
+
+\n\n
+
+Lets you switch between the allowing adjustable difficulty and the original game mode where the difficulty increases as you play through the levels. 
+
+\n\n
+
+<b>Difficulty</b>
+
+\n\n
+
+Set difficulty level. Adds more enemies and bullets to the screen. 1=Easy, 10=Insane. Disabled when game is played in \'Original\' mode. 
+
+\n\n
+
+<b>Fighter Offset</b>
+
+\n\n
+
+Adjust the distance between the fighter and the point where you touch the screen.
+
+\n\n
+
+<b>Trackball Velocity</b>
+
+\n\n
+
+Sets the rate of change for the trackball. The higher the value the more the fighter will move in response to using the trackball.
+
+\n\n
+
+<b>OpenGL</b>
+
+\n\n
+
+Enable hardware acceleration for drawing graphics. When disabled the application will fall back to the normal Canvas renderer which is still playable but a little sluggish. 
+
+\n\n
+
+<b>Line Width</b>
+
+\n\n
+
+Adjust the line width used to draw screen elements. Not available for OpenGL render mode. 
+
+\n\n
+
+<b>Show Profile</b>
+
+\n\n
+
+Show Frames Per Second (FPS) profile summary dialog on exit from game screen.
+
+\n\n
+
+</string>
+	
+</resources>

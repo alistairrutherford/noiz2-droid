@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    
+    <string-array name="play_mode_type">
+        <item>Adjustable Difficulty</item>
+        <item>Original</item>
+    </string-array>
+    
+</resources>
