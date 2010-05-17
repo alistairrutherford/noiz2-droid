@@ -26,7 +26,7 @@ goto gotTools
 set PATH=%PATH%;%SDK_TOOLS%
 
 if not "%ANDROID_JAVA_HOME%" == "" goto gotJavaHOME
-set ANDROID_JAVA_HOME=C:\Program Files\Java\jdk\jdk1.6.0_17
+set ANDROID_JAVA_HOME=C:\Program Files\Java\jdk\jdk1.6.0_20
 
 :gotJavaHOME
 @echo on

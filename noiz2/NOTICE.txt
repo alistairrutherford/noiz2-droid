@@ -16,8 +16,8 @@ This work is composed of two licenses.
   License for the specific language governing permissions and limitations
   under the License.
  
-2) The original game core is under Kentas own license terms which although looks very like MIT 
-   license is his own wording:
+2) The original game core is under Kentas own license terms which appears to be the BSD
+   license:
   
   Redistribution and use in source and binary forms,
   with or without modification, are permitted provided that
