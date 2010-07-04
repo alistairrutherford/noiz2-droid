@@ -26,33 +26,30 @@ public class ApplicationPreferences
     public static final String SOUND_TEXT = "Sound on/off";
     public static final boolean SOUND_DEFAULT = true;
 
-	public static final String PLAY_MODE_NETTHREADS = "Adjustable Difficulty";
-    public static final String PLAY_MODE_ORIGINAL = "Original";
-	
-	public static final String RANK_TEXT = "Difficulty";
+	public static final String RANK_KEY = "Difficulty";
 	public static final int RANK_DEFAULT = 0;
 	public static final int RANK_MAX = 10;
 	
-	public static final String LINE_WIDTH_TEXT = "Line Width";
+	public static final String LINE_WIDTH_KEY = "Line Width";
 	public static final int LINE_WIDTH_DEFAULT = 0;
 	public static final int LINE_WIDTH_MAX = 4;
 
-    public static final String FIGHTER_OFFSET_TEXT = "Fighter Offset";
+    public static final String FIGHTER_OFFSET_KEY = "Fighter Offset";
     public static final int FIGHTER_OFFSET_DEFAULT = 10;
     public static final int FIGHTER_OFFSET_MAX = 20;
 
-    public static final String TRACKBALL_VELOCITY_TEXT = "Trackball Velocity";
+    public static final String TRACKBALL_VELOCITY_KEY = "Trackball Velocity";
     public static final int TRACKBALL_VELOCITY_DEFAULT = 11;
     public static final int TRACKBALL_VELOCITY_MAX = 30;
     
-	public static final String SHOW_PROFILE_TEXT = "Show Profile";
+	public static final String SHOW_PROFILE_KEY = "Show Profile";
 	public static final boolean SHOW_PROFILE_DEFAULT = false;
 
-	public static final String RENDER_TEXT = "OpenGL";
+	public static final String RENDER_KEY = "OpenGL";
 	public static final boolean RENDER_DEFAULT = true;
 
-    public static final String PLAY_MODE_TEXT = "Mode";
-    public static final String PLAY_MODE_DEFAULT = PLAY_MODE_NETTHREADS;
+    public static final String PLAY_MODE_KEY = "Mode";
+    public static String PLAY_MODE_DEFAULT = "";
 
 	// Preferences 
 	private static ApplicationPreferences instance = null;
@@ -83,6 +80,9 @@ public class ApplicationPreferences
 	public void init(Context context)
 	{
 	    settings = context.getSharedPreferences(ApplicationPreferences.NAME, Activity.MODE_PRIVATE);
+	    
+	    // Initialise default play mode.
+	    ApplicationPreferences.PLAY_MODE_DEFAULT = context.getString(R.string.play_mode_adjustable_difficulty_text);
 	}
 	
     /**
@@ -92,7 +92,7 @@ public class ApplicationPreferences
      */
     public int getRank()
     {
-		int value = settings.getInt(RANK_TEXT, RANK_DEFAULT);
+		int value = settings.getInt(RANK_KEY, RANK_DEFAULT);
 
 		return value;
     }
@@ -105,7 +105,7 @@ public class ApplicationPreferences
     public void setRank(int value)
     {
         SharedPreferences.Editor editor = settings.edit();
-        editor.putInt(RANK_TEXT, value);
+        editor.putInt(RANK_KEY, value);
         editor.commit();
     }
 
@@ -116,7 +116,7 @@ public class ApplicationPreferences
      */
     public int getLineWidth()
     {
-		int value = settings.getInt(LINE_WIDTH_TEXT, LINE_WIDTH_DEFAULT);
+		int value = settings.getInt(LINE_WIDTH_KEY, LINE_WIDTH_DEFAULT);
 
 		return value;
     }
@@ -129,7 +129,7 @@ public class ApplicationPreferences
     public void setLineWidth(int value)
     {
         SharedPreferences.Editor editor = settings.edit();
-        editor.putInt(LINE_WIDTH_TEXT, value);
+        editor.putInt(LINE_WIDTH_KEY, value);
         editor.commit();
     }
 
@@ -140,7 +140,7 @@ public class ApplicationPreferences
      */
     public int getFighterOffset()
     {
-        int value = settings.getInt(FIGHTER_OFFSET_TEXT, FIGHTER_OFFSET_DEFAULT);
+        int value = settings.getInt(FIGHTER_OFFSET_KEY, FIGHTER_OFFSET_DEFAULT);
 
         return value;
     }
@@ -153,7 +153,7 @@ public class ApplicationPreferences
     public void setFighterOffset(int value)
     {
         SharedPreferences.Editor editor = settings.edit();
-        editor.putInt(FIGHTER_OFFSET_TEXT, value);
+        editor.putInt(FIGHTER_OFFSET_KEY, value);
         editor.commit();
     }
 
@@ -164,7 +164,7 @@ public class ApplicationPreferences
      */
     public int getTrackballVelocity()
     {
-        int value = settings.getInt(TRACKBALL_VELOCITY_TEXT, TRACKBALL_VELOCITY_DEFAULT);
+        int value = settings.getInt(TRACKBALL_VELOCITY_KEY, TRACKBALL_VELOCITY_DEFAULT);
 
         return value;
     }
@@ -177,7 +177,7 @@ public class ApplicationPreferences
     public void setTrackballVelocity(int value)
     {
         SharedPreferences.Editor editor = settings.edit();
-        editor.putInt(TRACKBALL_VELOCITY_TEXT, value);
+        editor.putInt(TRACKBALL_VELOCITY_KEY, value);
         editor.commit();
     }
 
@@ -200,7 +200,7 @@ public class ApplicationPreferences
      */
     public boolean getShowProfile()
     {
-		boolean value = settings.getBoolean(SHOW_PROFILE_TEXT, SHOW_PROFILE_DEFAULT);
+		boolean value = settings.getBoolean(SHOW_PROFILE_KEY, SHOW_PROFILE_DEFAULT);
 
 		return value;
     }
@@ -225,7 +225,7 @@ public class ApplicationPreferences
     public void setShowProfile(boolean value)
     {
         SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean(SHOW_PROFILE_TEXT, value);
+        editor.putBoolean(SHOW_PROFILE_KEY, value);
         editor.commit();
     }
 
@@ -236,7 +236,7 @@ public class ApplicationPreferences
      */
     public boolean getRenderer()
     {
-		boolean value = settings.getBoolean(RENDER_TEXT, RENDER_DEFAULT);
+		boolean value = settings.getBoolean(RENDER_KEY, RENDER_DEFAULT);
 
 		return value;
     }
@@ -249,7 +249,7 @@ public class ApplicationPreferences
     public void setRenderer(boolean value)
     {
         SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean(RENDER_TEXT, value);
+        editor.putBoolean(RENDER_KEY, value);
         editor.commit();
     }
     
@@ -260,7 +260,7 @@ public class ApplicationPreferences
      */
     public String getPlayMode()
     {
-        String value = settings.getString(PLAY_MODE_TEXT, PLAY_MODE_DEFAULT);
+        String value = settings.getString(PLAY_MODE_KEY, PLAY_MODE_DEFAULT);
 
         return value;
     }
@@ -273,7 +273,7 @@ public class ApplicationPreferences
     public void setPlayMode(String value)
     {
         SharedPreferences.Editor editor = settings.edit();
-        editor.putString(PLAY_MODE_TEXT, value);
+        editor.putString(PLAY_MODE_KEY, value);
         editor.commit();
     }    
     

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Noiz2</string>
+    
+	<string name="main_no_items">無任何項目</string>
+    
+	<string name="activity_bullet_ml">檢視 ML</string>
+    <string name="activity_preferences">設定</string>
+    <string name="activity_help">說明</string>
+	<string name="activity_about">關於</string>
+    
+	<string name="copyright">(c) Kenta Cho</string>
+
+	<string name="ported_by">Android (c) Alistair Rutherford</string>
+
+	<string name="ported_where">格拉斯哥，蘇格蘭，2009</string>
+	
+    <string name="author_site">www.netthreads.co.uk</string>
+    
+	<string name="about">關於</string>
+
+	<string name="settings">設定</string>
+	
+	<string name="help">說明</string>
+
+    <string name="unknown">未知</string>
+
+	<string name="run_title">開始</string>
+    
+	<string name="dialog_ok">確定</string>
+	
+	<string name="dialog_title">分析結果</string>
+    
+	<string name="loading_cache">載入中 ..</string>
+    
+	<!-- Shared Preferences -->
+	<string name="data_preferences">設定</string>
+
+	<string name="rank">等級</string>
+
+	<string name="line_thickness">線厚度</string>
+
+    <string name="eula_title">許可協議</string>
+    <string name="eula_accept">接受</string>
+    <string name="eula_refuse">不接受</string>
+
+    <string name="sound_summary">切換音效開關</string>
+    <string name="difficulty_summary">1=容易，10=瘋狂</string>
+    <string name="line_width_summary">畫線寬度</string>
+    <string name="opengl_summary">使用OpenGL渲染</string>
+    <string name="fighter_offset_summary">戰鬥機到你接點位置的漂移距離</string>
+    <string name="trackball_velocity_summary">變更軌跡球速率。</string>
+    <string name="profile_summary">顯示FPS分析結果</string>
+
+    <string name="menu_tag">按Menu鍵檢視 設定/說明</string>
+
+    <string name="sound_text">聲音 開/關"</string>
+
+	<string name="play_mode_adjustable_difficulty_text">難度可調</string>
+
+    <string name="play_mode_original">標準模式</string>
+	
+	<string name="rank_text">難度</string>
+	
+	<string name="line_width_text">畫線寬度</string>
+
+    <string name="fighter_offset_text">戰鬥機偏移</string>
+
+    <string name="trackball_velocity_text">軌跡球速率</string>
+    
+	<string name="show_profile_text">顯示分析</string>
+	
+	<string name="render_text">OpenGL</string>
+
+    <string name="play_mode_text">模式</string>
+    
+    
+</resources>

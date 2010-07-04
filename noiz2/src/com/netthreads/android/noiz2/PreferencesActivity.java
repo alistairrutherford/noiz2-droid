@@ -114,7 +114,7 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         boolean soundChecked = preferences.getSound();
         CheckBoxPreference soundPref = new CheckBoxPreference(this);
         soundPref.setKey(ApplicationPreferences.SOUND_TEXT);
-        soundPref.setTitle(ApplicationPreferences.SOUND_TEXT);
+        soundPref.setTitle(this.getString(R.string.sound_text));
         soundPref.setChecked(soundChecked);
         soundPref.setSummary(R.string.sound_summary);
 
@@ -122,12 +122,12 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         
         // Play mode
         playModePref = new ListPreference(this);
+        playModePref.setKey(ApplicationPreferences.PLAY_MODE_KEY);
         playModePref.setEntries(R.array.play_mode_type);
         playModePref.setEntryValues(R.array.play_mode_type);
-        playModePref.setDialogTitle(ApplicationPreferences.PLAY_MODE_TEXT);
-        playModePref.setKey(ApplicationPreferences.PLAY_MODE_TEXT);
-        playModePref.setTitle(ApplicationPreferences.PLAY_MODE_TEXT);
-        playModePref.setValue(ApplicationPreferences.PLAY_MODE_DEFAULT);
+        playModePref.setDialogTitle(this.getString(R.string.play_mode_text));
+        playModePref.setTitle(this.getString(R.string.play_mode_text));
+        playModePref.setValue(this.getString(R.string.play_mode_adjustable_difficulty_text)); // adjustable difficulty
         playModePref.setSummary(preferences.getPlayMode());
 
         inlinePrefCat.addPreference(playModePref);
@@ -135,8 +135,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         // Difficulty slider
         rankPref = new SeekBarPreference(this);
 
-        rankPref.setKey(ApplicationPreferences.RANK_TEXT);
-        rankPref.setTitle(ApplicationPreferences.RANK_TEXT);
+        rankPref.setKey(ApplicationPreferences.RANK_KEY);
+        rankPref.setTitle(this.getString(R.string.rank_text));
         rankPref.setOffset(1);
         rankPref.setMax(ApplicationPreferences.RANK_MAX);
         rankPref.setProgress(preferences.getRank()); // See note (*)
@@ -147,8 +147,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         // Finger fighter offset
         fighterOffsetPref = new SeekBarPreference(this);
 
-        fighterOffsetPref.setKey(ApplicationPreferences.FIGHTER_OFFSET_TEXT);
-        fighterOffsetPref.setTitle(ApplicationPreferences.FIGHTER_OFFSET_TEXT);
+        fighterOffsetPref.setKey(ApplicationPreferences.FIGHTER_OFFSET_KEY);
+        fighterOffsetPref.setTitle(this.getString(R.string.fighter_offset_text));
         fighterOffsetPref.setOffset(0);
         fighterOffsetPref.setMax(ApplicationPreferences.FIGHTER_OFFSET_MAX);
         fighterOffsetPref.setProgress(preferences.getFighterOffset()); // See
@@ -161,8 +161,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         // Finger fighter offset
         trackballVelocityPref = new SeekBarPreference(this);
 
-        trackballVelocityPref.setKey(ApplicationPreferences.TRACKBALL_VELOCITY_TEXT);
-        trackballVelocityPref.setTitle(ApplicationPreferences.TRACKBALL_VELOCITY_TEXT);
+        trackballVelocityPref.setKey(ApplicationPreferences.TRACKBALL_VELOCITY_KEY);
+        trackballVelocityPref.setTitle(this.getString(R.string.trackball_velocity_text));
         trackballVelocityPref.setOffset(1);
         trackballVelocityPref.setMax(ApplicationPreferences.TRACKBALL_VELOCITY_MAX);
         trackballVelocityPref.setProgress(preferences.getTrackballVelocity()); // See
@@ -175,8 +175,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         // OpenGL renderer
         boolean rendererChecked = preferences.getRenderer();
         CheckBoxPreference rendererPref = new CheckBoxPreference(this);
-        rendererPref.setKey(ApplicationPreferences.RENDER_TEXT);
-        rendererPref.setTitle(ApplicationPreferences.RENDER_TEXT);
+        rendererPref.setKey(ApplicationPreferences.RENDER_KEY);
+        rendererPref.setTitle(this.getString(R.string.render_text));
         rendererPref.setChecked(rendererChecked);
         rendererPref.setSummary(R.string.opengl_summary);
 
@@ -185,8 +185,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         // Line width slider
         lineWidthPref = new SeekBarPreference(this);
 
-        lineWidthPref.setKey(ApplicationPreferences.LINE_WIDTH_TEXT);
-        lineWidthPref.setTitle(ApplicationPreferences.LINE_WIDTH_TEXT);
+        lineWidthPref.setKey(ApplicationPreferences.LINE_WIDTH_KEY);
+        lineWidthPref.setTitle(this.getString(R.string.line_width_text));
         lineWidthPref.setOffset(1);
         lineWidthPref.setMax(ApplicationPreferences.LINE_WIDTH_MAX);
         lineWidthPref.setProgress(preferences.getLineWidth()); // See note (*)
@@ -197,8 +197,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         // Profile data switch
         boolean profilerChecked = preferences.getShowProfile();
         CheckBoxPreference profilerPref = new CheckBoxPreference(this);
-        profilerPref.setKey(ApplicationPreferences.SHOW_PROFILE_TEXT);
-        profilerPref.setTitle(ApplicationPreferences.SHOW_PROFILE_TEXT);
+        profilerPref.setKey(ApplicationPreferences.SHOW_PROFILE_KEY);
+        profilerPref.setTitle(this.getString(R.string.show_profile_text));
         profilerPref.setChecked(profilerChecked);
         profilerPref.setSummary(R.string.profile_summary);
 
@@ -221,7 +221,7 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
     {
         ApplicationPreferences preferences = ApplicationPreferences.getInstance();
 
-        if (key.equals(ApplicationPreferences.PLAY_MODE_TEXT))
+        if (key.equals(ApplicationPreferences.PLAY_MODE_KEY))
         {
             String mode = preferences.getPlayMode();
 
@@ -230,7 +230,7 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
             setDifficultyState(mode);
         }
         else
-            if (key.equals(ApplicationPreferences.RENDER_TEXT))
+            if (key.equals(ApplicationPreferences.RENDER_KEY))
             {
                 boolean state = preferences.getRenderer();
 
@@ -246,7 +246,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
     private void setDifficultyState(String mode)
     {
         // If anything but the adjustable setting..
-        if (!mode.equals(ApplicationPreferences.PLAY_MODE_NETTHREADS))
+        String dtext = this.getString(R.string.play_mode_adjustable_difficulty_text);
+        if (!mode.equals(dtext))
         {
             rankPref.setEnabled(false);
         }

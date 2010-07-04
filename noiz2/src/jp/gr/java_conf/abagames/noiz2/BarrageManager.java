@@ -41,6 +41,7 @@ import jp.gr.java_conf.abagames.bulletml.BulletmlPlayer;
 import android.content.Context;
 
 import com.netthreads.android.noiz2.ApplicationPreferences;
+import com.netthreads.android.noiz2.R;
 import com.netthreads.android.noiz2.data.StateData;
 
 /**
@@ -125,6 +126,7 @@ public class BarrageManager
 	private int[] pay = new int[QUICK_APP_NUM];
 
 	private ApplicationPreferences preferences = null;
+	private Context context = null;
 	
 	/**
 	 * Load the files of BulletML.
@@ -133,6 +135,7 @@ public class BarrageManager
 	 */
 	public BarrageManager(Context context, StateData state)
 	{
+	    this.context = context;
 		this.preferences = ApplicationPreferences.getInstance();
 		
 		this.screenWidth = state.viewWidth;
@@ -202,7 +205,7 @@ public class BarrageManager
         }
         
         // Examine the play mode. Custom setting allows the adjustable difficulty
-        if (preferences.getPlayMode().equals(ApplicationPreferences.PLAY_MODE_NETTHREADS))
+        if (preferences.getPlayMode().equals(context.getString(R.string.play_mode_adjustable_difficulty_text)))
         {
             initQueue((long) stageSpec[stage][0]);
             

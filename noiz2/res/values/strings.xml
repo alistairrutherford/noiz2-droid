@@ -53,5 +53,26 @@
     <string name="profile_summary">Show FPS Profile Summary</string>
 
     <string name="menu_tag">Press Menu for Settings/Help</string>
+
+    <string name="sound_text">Sound on/off"</string>
+
+	<string name="play_mode_adjustable_difficulty_text">Adjustable Difficulty</string>
+
+    <string name="play_mode_original">Original</string>
+	
+	<string name="rank_text">Difficulty</string>
+	
+	<string name="line_width_text">Line Width</string>
+
+    <string name="fighter_offset_text">Fighter Offset</string>
+
+    <string name="trackball_velocity_text">Trackball Velocity</string>
+    
+	<string name="show_profile_text">Show Profile</string>
+	
+	<string name="render_text">OpenGL</string>
+
+    <string name="play_mode_text">Mode</string>
+    
     
 </resources>

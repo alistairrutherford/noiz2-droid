@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    
+    <string-array name="play_mode_type">
+        <item>难度可调</item>
+        <item>标准模式</item>
+    </string-array>
+    
+</resources>

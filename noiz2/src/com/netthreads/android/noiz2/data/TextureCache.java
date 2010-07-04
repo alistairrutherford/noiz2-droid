@@ -40,7 +40,7 @@ public class TextureCache
     
     private SpriteTexture[] images = null;
 
-    private boolean userHardwareBuffers = false;
+    private boolean useHardwareBuffers = false;
     private boolean useVerts = false;
     private int count = 0;
 
@@ -124,8 +124,6 @@ public class TextureCache
      */
     public void unload(SpriteTexture texture, GL10 gl, boolean freeHardwareBuffers)
     {
-		boolean useHardwareBuffers = userHardwareBuffers;
-
     	if (texture!=null && texture.isLoaded())
     	{
     		gl.glDeleteTextures(1, texture.getTextureIds(), 0);
@@ -151,8 +149,6 @@ public class TextureCache
      */
     public void loadAll(Context context, RendererGL renderer, GL10 gl)
     {
-		boolean useHardwareBuffers = userHardwareBuffers;
-		
 		int length = images.length;
 
     	for (int index = 0; index< length; index++)
@@ -276,7 +272,7 @@ public class TextureCache
 	 * 
 	 * Only activated if hardware buffers used.
 	 * 
-	 * @return
+	 * @return The sprite grid.
 	 */
 	public Grid createGrid(SpriteTexture texture, int width, int height)
 	{
@@ -290,6 +286,7 @@ public class TextureCache
 		
         return spriteGrid;
 	}    
+	
     /**
      * Load single image.
      * 
