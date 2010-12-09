@@ -38,7 +38,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
     private SeekBarPreference fighterOffsetPref = null;
     private SeekBarPreference trackballVelocityPref = null;
     private ListPreference playModePref = null;
-
+    private CheckBoxPreference soundPref = null;
+    
     /*
      * View Create
      * 
@@ -112,7 +113,7 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
 
         // Sound on/off
         boolean soundChecked = preferences.getSound();
-        CheckBoxPreference soundPref = new CheckBoxPreference(this);
+        soundPref = new CheckBoxPreference(this);
         soundPref.setKey(ApplicationPreferences.SOUND_TEXT);
         soundPref.setTitle(this.getString(R.string.sound_text));
         soundPref.setChecked(soundChecked);
@@ -195,14 +196,14 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
         inlinePrefCat.addPreference(lineWidthPref);
         
         // Profile data switch
-        boolean profilerChecked = preferences.getShowProfile();
-        CheckBoxPreference profilerPref = new CheckBoxPreference(this);
-        profilerPref.setKey(ApplicationPreferences.SHOW_PROFILE_KEY);
-        profilerPref.setTitle(this.getString(R.string.show_profile_text));
-        profilerPref.setChecked(profilerChecked);
-        profilerPref.setSummary(R.string.profile_summary);
-
-        inlinePrefCat.addPreference(profilerPref);
+//        boolean profilerChecked = preferences.getShowProfile();
+//        CheckBoxPreference profilerPref = new CheckBoxPreference(this);
+//        profilerPref.setKey(ApplicationPreferences.SHOW_PROFILE_KEY);
+//        profilerPref.setTitle(this.getString(R.string.show_profile_text));
+//        profilerPref.setChecked(profilerChecked);
+//        profilerPref.setSummary(R.string.profile_summary);
+//
+//        inlinePrefCat.addPreference(profilerPref);
 
         setDifficultyState(preferences.getPlayMode());
         setLineWidthState(preferences.getRenderer());

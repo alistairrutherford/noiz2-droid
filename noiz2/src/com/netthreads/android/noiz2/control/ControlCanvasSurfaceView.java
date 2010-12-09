@@ -40,7 +40,7 @@ public class ControlCanvasSurfaceView extends CanvasSurfaceView
         super(context);
 
         this.state = stateData;
-        
+
         this.velocity = ApplicationPreferences.getInstance().getTrackballVelocity();
     }
 
@@ -69,31 +69,35 @@ public class ControlCanvasSurfaceView extends CanvasSurfaceView
         // -----------------------------------------------------------
         SystemClock.sleep(SLEEP_TIME);
 
-        queueEvent(new Runnable()
+        if (event.getAction() == MotionEvent.ACTION_MOVE)
         {
-            public void run()
+            queueEvent(new Runnable()
             {
-                float x = event.getX();
-                float y = event.getY();
- 
-                // **BUG** switching to use the trackball sometimes causes a ghost
-                // event to be sent with values <1 for x and y. How annoying
-                if (x>1&&y>1)
+                public void run()
                 {
-                    state.controlX = x; 
-                    state.controlY = y;
-    
-                    if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE)
+                    float x = event.getX();
+                    float y = event.getY();
+
+                    // **BUG** switching to use the trackball sometimes causes a
+                    // ghost event to be sent with values <1 for x and y. How
+                    // annoying
+                    if (x > 1 && y > 1)
                     {
-                        state.touched = true;
-                    }
-                    else
-                    {
-                        state.touched = false;
+                        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE)
+                        {
+                            state.controlX = x;
+                            state.controlY = y;
+
+                            state.touched = true;
+                        }
+                        else
+                        {
+                            state.touched = false;
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
 
         return true;
     }
@@ -122,36 +126,31 @@ public class ControlCanvasSurfaceView extends CanvasSurfaceView
      */
     public boolean handleTrackball(final MotionEvent event)
     {
-        
+
         final float scaleX = event.getXPrecision();
         final float scaleY = event.getYPrecision();
-
 
         float x = state.controlX + Math.round(event.getX() * scaleX * velocity);
         float y = state.controlY + Math.round(event.getY() * scaleY * velocity);
 
-        if (x>0 && y>0)
+        if (x > 0 && y > 0)
         {
             state.controlX = x;
             state.controlY = y;
-            
+
             int width = state.viewWidth;
             int height = state.viewHeight;
-    
+
             if (state.controlX < 0)
                 state.controlX = 0;
-            else
-                if (state.controlX > width)
-                    state.controlX = width;
-    
+            else if (state.controlX > width) state.controlX = width;
+
             if (state.controlY < 0)
                 state.controlY = 0;
-            else
-                if (state.controlY > height)
-                    state.controlY = height;
-    
+            else if (state.controlY > height) state.controlY = height;
+
         }
-        
+
         return true;
     }
 

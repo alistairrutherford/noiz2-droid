@@ -6,7 +6,7 @@ rem --------------------------------------------------------
 setlocal
 
 if not "%ANDROID_ANT_HOME%" == "" goto gotANTHOME
-set ANDROID_ANT_HOME=C:\Program Files\java\ant\apache-ant-1.7.0
+set ANDROID_ANT_HOME=C:\Program Files\Java\ant\apache-ant-1.8.1
 
 :gotANTHOME
 set ANT_HOME=%ANDROID_ANT_HOME%
@@ -26,7 +26,7 @@ goto gotTools
 set PATH=%PATH%;%SDK_TOOLS%
 
 if not "%ANDROID_JAVA_HOME%" == "" goto gotJavaHOME
-set ANDROID_JAVA_HOME=C:\Program Files\Java\jdk\jdk1.6.0_20
+set ANDROID_JAVA_HOME=C:\Program Files\Java\jdk\jdk1.6.0_22
 
 :gotJavaHOME
 @echo on

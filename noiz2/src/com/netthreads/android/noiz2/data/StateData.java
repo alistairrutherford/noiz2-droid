@@ -31,7 +31,7 @@ public class StateData
 	
     public long time = 0;
     public long timeDelta = 0;
-    public float timeDeltaSeconds = 0;
+    public float timeDeltaMsec = 0;
     
 	public int viewWidth = 0;
     public int viewHeight = 0;
@@ -62,7 +62,7 @@ public class StateData
     {
         time = System.currentTimeMillis();
         timeDelta = time - lastTime;
-        timeDeltaSeconds = (lastTime > 0.0f) ? (timeDelta / 1000.0f) : 0.0f;
+        timeDeltaMsec = (lastTime > 0.0f) ? timeDelta  : 0.0f;
         
         lastTime = time;
     }

@@ -16,57 +16,54 @@
 
 package com.netthreads.android.noiz2.data;
 
-import jp.gr.java_conf.abagames.noiz2.Ship;
 
 /**
- * Update our state structure. 
+ * Update our state structure.
  * 
  */
-public class StateManager 
+public class StateManager
 {
-    private static final float SPRING = 0.4f;
-    private static final float DAMPING = 0.9f;
-    private static final float VELOCITY = 1.0f;
+    private static final float VELOCITY = 5.0f;
 
     private StateData state = null;
-    private int offsetX = 0;
-    private int offsetY = 0;
-    
+    private int offsetY;
+    private float velocity;
+
     /**
      * Create mover command against layer.
      * 
      * @param layer
      */
-    public StateManager(StateData state, int offset) 
+    public StateManager(StateData state, int offset)
     {
-    	this.state = state;
+        this.state = state;
 
-    	offsetX = Ship.SHIP_SIZE/2;
-    	offsetY = offset;
-	}
-    
+        offsetY = offset*5;
+
+        velocity = VELOCITY / 1000.0f;
+    }
+
     /**
      * Update ship position
      * 
      */
-    private void updateShip() 
-	{
-    	float velocity = state.timeDeltaSeconds*VELOCITY;
-    	
-        float vx = ((state.controlX)-state.currentX)*SPRING;
+    private void updateShip()
+    {
+        float v = state.timeDeltaMsec * velocity;
 
-        vx *=DAMPING;
-            
-        state.currentX += vx + velocity;
-            
-        float vy = ((state.controlY-offsetX)-state.currentY)*SPRING;
-            
-        vy *=DAMPING;
-            
-        state.currentY += vy + velocity-offsetY;
+        float vx = (state.controlX - state.currentX) * v;
+
+        state.currentX += vx;
+
+        // Note, you have to include the offset in calculating how much the current
+        // position should move.
+        float vy = (state.controlY - state.currentY - offsetY) * v;
+
+        state.currentY += vy;
 
         // Clamp
-        if (state.currentY<0) state.currentY = 0;
+        if (state.currentY < 0) state.currentY = 0;
+        if (state.currentX < 0) state.currentX = 0;
     }
 
     /**
@@ -76,7 +73,7 @@ public class StateManager
     public void update()
     {
         state.updateTime();
-        
+
         updateShip();
     }
 }

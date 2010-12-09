@@ -71,31 +71,35 @@ public class ControlGLSurfaceView extends GLSurfaceView
         // -----------------------------------------------------------
         SystemClock.sleep(SLEEP_TIME);
 
-        queueEvent(new Runnable()
+        if (event.getAction()==MotionEvent.ACTION_MOVE)
         {
-            public void run()
+            queueEvent(new Runnable()
             {
-                float x = event.getX();
-                float y = event.getY();
- 
-                // **BUG** switching to use the trackball sometimes causes a ghost
-                // event to be sent with values <1 for x and y. How annoying
-                if (x>1&&y>1)
+                public void run()
                 {
-                    state.controlX = x; 
-                    state.controlY = y;
-    
-                    if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE)
+                    float x = event.getX();
+                    float y = event.getY();
+
+                    // **BUG** switching to use the trackball sometimes causes a
+                    // ghost event to be sent with values <1 for x and y. How
+                    // annoying
+                    if (x > 1 && y > 1)
                     {
-                        state.touched = true;
-                    }
-                    else
-                    {
-                        state.touched = false;
+                        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE)
+                        {
+                            state.controlX = x;
+                            state.controlY = y;
+
+                            state.touched = true;
+                        }
+                        else
+                        {
+                            state.touched = false;
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
 
         return true;
     }

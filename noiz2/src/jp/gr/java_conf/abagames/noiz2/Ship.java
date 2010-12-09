@@ -33,9 +33,10 @@
 package jp.gr.java_conf.abagames.noiz2;
 
 
-import jp.gr.java_conf.abagames.bulletml.*;
-
 import java.util.Random;
+
+import jp.gr.java_conf.abagames.bulletml.BulletImpl;
+import jp.gr.java_conf.abagames.bulletml.BulletmlPlayer;
 
 import com.netthreads.android.noiz2.R;
 import com.netthreads.android.noiz2.data.StateData;
@@ -181,13 +182,15 @@ public class Ship
 	 */
 	public final void move()
 	{
-		pxPos = xPos;
+        pxPos = xPos;
 		pyPos = yPos;
+
 		
 		// WTF!!
 		xPos = (int)stateData.currentX<<8;
 		yPos = (int)stateData.currentY<<8;
 		
+		// WTF!!
 		if (pxPos == xPos && pyPos == yPos)
 		{
 			pyPos = yPos + 1;

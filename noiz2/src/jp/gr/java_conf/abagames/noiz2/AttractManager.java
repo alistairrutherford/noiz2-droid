@@ -35,6 +35,7 @@ package jp.gr.java_conf.abagames.noiz2;
 
 import jp.gr.java_conf.abagames.bulletml.Colors;
 import android.content.Context;
+import android.util.Log;
 
 import com.netthreads.android.noiz2.ApplicationPreferences;
 import com.netthreads.android.noiz2.R;
@@ -158,7 +159,10 @@ public class AttractManager
 		manager.initStage(stage);
 
 		// Switch sound on if it is set
+		boolean sound = ApplicationPreferences.getInstance().getSound();
 		SoundPoolPlayer.instance().setSound(ApplicationPreferences.getInstance().getSound());
+		
+		Log.d("initGame", ""+sound);
 	}
 
 	/**

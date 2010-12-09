@@ -154,7 +154,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * second execution is attempted.)</li>
  * </ul>
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","rawtypes"})
 public abstract class UserTask<Params, Progress, Result>
 {
     private static final String LOG_TAG = "UserTask";
